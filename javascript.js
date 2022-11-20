@@ -1,6 +1,7 @@
 // ROCK PAPER SCISORS
 
-
+let computerScore = 0;
+let playerScore = 0
 const choices = ["Rock", "Paper", "Scisors"];
 
 
@@ -8,41 +9,83 @@ function getComputerChoice() {
   return choices[Math.floor(Math.random()*choices.length)];
 }
 
-function gameRound(playerSelection, computerSelection) {
-  playerSelection = playerChoice.toLowerCase();
-  computerSelection = getComputerChoice().toLowerCase();
+function gameRound(computerSelection = getComputerChoice().toLowerCase()) {
+  let playerSelection = prompt("please choose Rock/Paper/Scisors.").toLowerCase();
   console.log(computerSelection);
   if (playerSelection === computerSelection) {
-    result = `you have both chosen ${playerSelection}, it's a tie`;
-    
-    // WIN CONDITION 
+    result = 0; 
+    alert(`you have both chosen ${playerSelection}, it's a tie`);
+      
+    // WIN CONDITION - adding score to playerScore (is supposed to)
  } else if (playerSelection == "rock" && computerSelection == "scisors" || playerSelection == "paper" && computerSelection == "rock" || playerSelection == "scisoros" && computerSelection == "paper") {
-    alert(`you win! ${playerSelection} wins over ${computerSelection}`);
+    alert(`you win! ${playerSelection} wins over ${computerSelection}`)
+    
+    return ++playerScore
 
-    // LOOSE CONDITION
- } else if (playerSelection == "rock" && computerSelection == "paper" || playerSelection == "paper" && computerSelection == "scisors"|| playerSelection == "scisoros" && computerSelection == "rock") {
-    alert(`You loose, ${playerSelection} looses agnist ${computerSelection}`);
-
+    // LOOSE CONDITION - adding score to computerScore
+ } else if (playerSelection == "rock" && computerSelection == "paper" || playerSelection == "paper" && computerSelection == "scisors"|| playerSelection == "scisors" && computerSelection == "rock") {
+     alert(`You loose, ${playerSelection} looses agnist ${computerSelection}`)
+     
+    return ++computerScore
  } 
 
-
-
-
-  // alert(result);
 }
+
+function game(){
+   
+
+   for ( let i = 0; i < 5; i++) {
+      let round = i + 1;
+      
+      // end game condition, winner announcment and do you wanna play again. 
+
+      if (round == 5){
+         function finishGame() {
+            if (playerScore > computerScore) {
+               alert (` score is ${playerScore} to ${computerScore}. You win!`) 
+            } else if (playerScore == computerScore){ 
+               alert (" it's a tie");
+            } else {
+               alert (`score is ${playerScore} to ${computerScore}. You loose :()`)
+            }
+            let nextGame = prompt (`do you wanna play again? (yes/no)`)
+            if (nextGame == /yes/i) {
+               game()
+            } else 
+            alert("thanks for playing! see you around :)")
+         }
+         finishGame();
+
+      } else if (round == 1){
+         alert("Game is beginning, good luck!");
+         gameRound(computerSelection = getComputerChoice().toLowerCase());
+         
+      
+         // Rounds and score assigment 
+      } else if (round < 5) {
+         alert(`Score is ${playerScore} to ${computerScore} `);
+         
+         gameRound(computerSelection = getComputerChoice().toLowerCase());
+      } 
+
+
+   }
+}
+
   
+
+game();
   
   
  
 
 
 
-let playerChoice = prompt("message");
+//let playerChoice = prompt("message");
 
 
 
-gameRound();
-
+// jestem z rodzinka wiec tylko stream z kodowania :) + glosna muzyka ...
 
 
  
