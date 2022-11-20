@@ -11,6 +11,7 @@ function getComputerChoice() {
 
 function gameRound(computerSelection = getComputerChoice().toLowerCase()) {
   let playerSelection = prompt("please choose Rock/Paper/Scisors.").toLowerCase();
+  
   console.log(computerSelection);
   if (playerSelection === computerSelection) {
     result = 0; 
@@ -34,12 +35,13 @@ function gameRound(computerSelection = getComputerChoice().toLowerCase()) {
 function game(){
    
 
-   for ( let i = 0; i < 5; i++) {
+   for ( let i = 0; i < 6; i++) {
       let round = i + 1;
-      
+      console.log(i);
+      console.log(round);
       // end game condition, winner announcment and do you wanna play again. 
 
-      if (round == 5){
+      if (round == 6){
          function finishGame() {
             if (playerScore > computerScore) {
                alert (` score is ${playerScore} to ${computerScore}. You win!`) 
@@ -48,22 +50,28 @@ function game(){
             } else {
                alert (`score is ${playerScore} to ${computerScore}. You loose :()`)
             }
-            let nextGame = prompt (`do you wanna play again? (yes/no)`)
-            if (nextGame == /yes/i) {
+
+            let nextGame = prompt (`do you wanna play again? (yes/no)`);
+            if (/yes/i.test(nextGame)) {
+               console.log(nextGame);
+               computerScore = 0;
+               playerScore = 0;
                game()
-            } else 
+            } else {
+               console.log(nextGame);
             alert("thanks for playing! see you around :)")
-         }
+         } }
          finishGame();
 
       } else if (round == 1){
-         alert("Game is beginning, good luck!");
+         alert(`Round ${round} is begining, good luck!`);
          gameRound(computerSelection = getComputerChoice().toLowerCase());
          
       
          // Rounds and score assigment 
-      } else if (round < 5) {
-         alert(`Score is ${playerScore} to ${computerScore} `);
+      } else if (round < 6) {
+
+         alert(`Round ${round}. Score is ${playerScore} to ${computerScore} `);
          
          gameRound(computerSelection = getComputerChoice().toLowerCase());
       } 
