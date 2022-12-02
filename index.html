@@ -4,10 +4,62 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="javascript.js"></script>
-  <title>Document</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="javascript.js" defer></script>
+  <title>RPS</title>
 </head>
 <body>
-  
+
+  <div class="header">Rock-Paper-Scissors</div>
+
+  <div class="score_section">
+    <div class="scoreboard">      
+      <div class="scoreboard_score" id="player">0</div>
+      <div class="scoreboard_score" id="comp">0</div>
+      <div class="scoreboard_name" id="p_1">Player</div>
+      <div class="scoreboard_name" id="p_2">Computer</div>
+    </div>
+  </div>
+
+  <div class="textDisplay">
+    <div class="selection">
+      <div class="player_selection">
+        <div class="default">?</div>
+      </div>
+      <div class="display_player">Your Choice</div>
+    </div>
+    <div class = text>
+      <p>Welcome!</p>
+      <p>The game is beggining.</p>
+      <p>Please choose wisely...</p>
+    </div>
+      <div class="selection">
+        <div class="comp_selection">
+          <div class="default">?</div>
+        </div>
+        <div class="display_player">Oppenent's Choice</div>
+    </div>
+  </div>
+
+  <div class="playerOpt">
+    <div class="choice"> 
+    <img src="/pictures/rock.webp"> </src>
+    <button class="playRound" id="rock">Rock</button>
+    </div>
+
+    <div class="choice">
+    <img src="/pictures/paper.webp"> </src>
+    <button class="playRound" id="paper">Paper</button>
+    </div>
+
+    <div class="choice">
+    <img src="/pictures/scissors.webp"> </src>
+    <button class="playRound" id="scissors">Scissors</button>
+    </div>
+  </div>
+
+
+
+
 </body>
 </html>
